@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Smart PDF Tools"
+version = "1.0.0"
+id = "artifacts/smart-pdf-tools"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19870
+
+[services.development]
+run = "pnpm --filter @workspace/smart-pdf-tools run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/smart-pdf-tools", "run", "build" ]
+publicDir = "artifacts/smart-pdf-tools/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19870"
+BASE_PATH = "/"

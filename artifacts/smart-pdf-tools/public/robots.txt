@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://smartpdftools.com/sitemap.xml
